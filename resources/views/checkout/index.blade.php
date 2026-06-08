@@ -14,7 +14,16 @@
                     <div class="space-y-4 mb-8">
                         @foreach($carts as $cart)
                             <div class="flex justify-between items-center bg-[#0B0F19] p-4 rounded-lg border border-[#2A2B3D]">
-                                <span class="text-gray-200 font-medium">{{ $cart->product->title }}</span>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-[#1A1B26] rounded border border-[#3F4059] flex items-center justify-center overflow-hidden">
+                                        @if($cart->product->image)
+                                            <img src="{{ Storage::url($cart->product->image) }}" class="w-full h-full object-cover">
+                                        @else
+                                            <span class="text-sm">{{ $cart->product->type == 'android' ? '📱' : '🎮' }}</span>
+                                        @endif
+                                    </div>
+                                    <span class="text-gray-200 font-medium">{{ $cart->product->title }}</span>
+                                </div>
                                 <span class="font-bold text-[#00FF66]">Rp {{ number_format($cart->product->price, 0, ',', '.') }}</span>
                             </div>
                         @endforeach

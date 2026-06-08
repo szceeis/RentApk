@@ -9,7 +9,7 @@ Route::get('/dashboard', function () {
     if (auth()->user()->is_admin) {
         return redirect()->route('admin.dashboard');
     }
-    return view('dashboard');
+    return redirect()->route('home');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

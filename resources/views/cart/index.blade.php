@@ -28,8 +28,12 @@
                             @foreach($carts as $cart)
                                 <div class="flex items-center justify-between border border-[#2A2B3D] bg-[#0B0F19] rounded-lg p-6 hover:border-[#6600FF]/50 transition duration-300">
                                     <div class="flex items-center space-x-6">
-                                        <div class="w-20 h-20 bg-gradient-to-br from-[#1A1B26] to-[#2A2B3D] rounded-lg flex items-center justify-center text-4xl shadow-inner border border-[#3F4059]">
-                                            {{ $cart->product->type == 'android' ? '📱' : '🎮' }}
+                                        <div class="w-20 h-20 bg-gradient-to-br from-[#1A1B26] to-[#2A2B3D] rounded-lg flex items-center justify-center text-4xl shadow-inner border border-[#3F4059] overflow-hidden">
+                                            @if($cart->product->image)
+                                                <img src="{{ Storage::url($cart->product->image) }}" class="w-full h-full object-cover" alt="{{ $cart->product->title }}">
+                                            @else
+                                                {{ $cart->product->type == 'android' ? '📱' : '🎮' }}
+                                            @endif
                                         </div>
                                         <div>
                                             <h4 class="font-extrabold text-xl text-white">{{ $cart->product->title }}</h4>

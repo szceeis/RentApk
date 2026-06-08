@@ -88,7 +88,11 @@
                 <div class="bg-[#1A1B26] border border-[#2A2B3D] rounded-xl overflow-hidden hover:shadow-[0_0_20px_rgba(102,0,255,0.2)] hover:border-[#6600FF]/50 transition-all duration-300 group">
                     <div class="h-48 bg-gradient-to-br from-[#0B0F19] to-[#1E1B3A] flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
-                        <span class="text-7xl group-hover:scale-110 transition-transform duration-500 relative z-10">{{ $product->type == 'android' ? '📱' : '🎮' }}</span>
+                        @if($product->image)
+                            <img src="{{ Storage::url($product->image) }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 z-10" alt="{{ $product->title }}">
+                        @else
+                            <span class="text-7xl group-hover:scale-110 transition-transform duration-500 relative z-10">{{ $product->type == 'android' ? '📱' : '🎮' }}</span>
+                        @endif
                     </div>
                     <div class="p-6 relative">
                         <div class="flex justify-between items-start mb-3">

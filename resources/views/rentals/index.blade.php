@@ -20,9 +20,20 @@
                         @forelse($transactions as $trx)
                             <div class="border {{ $trx->status == 'expired' ? 'border-[#2A2B3D] opacity-60' : 'border-[#3F4059] shadow-lg' }} bg-[#0B0F19] rounded-xl p-6 relative transition-all duration-300">
                                 <div class="flex justify-between items-start mb-6">
-                                    <div>
-                                        <h4 class="font-extrabold text-xl text-white">{{ $trx->product->title ?? 'Product Deleted' }}</h4>
-                                        <p class="text-sm text-gray-500 mt-1">Tgl Transaksi: {{ $trx->created_at->format('d M Y') }}</p>
+                                    <div class="flex items-center space-x-4">
+                                        <div class="w-16 h-16 bg-[#1A1B26] rounded-lg border border-[#3F4059] flex items-center justify-center overflow-hidden">
+                                            @if($trx->product && $trx->product->image)
+                                                <img src="{{ Storage::url($trx->product->image) }}" class="w-full h-full object-cover">
+                                            @elseif($trx->product)
+                                                <span class="text-3xl">{{ $trx->product->type == 'android' ? '📱' : '🎮' }}</span>
+                                            @else
+                                                <span class="text-3xl">🗑️</span>
+                                            @endif
+                                        </div>
+                                        <div>
+                                            <h4 class="font-extrabold text-xl text-white">{{ $trx->product->title ?? 'Product Deleted' }}</h4>
+                                            <p class="text-sm text-gray-500 mt-1">Tgl Transaksi: {{ $trx->created_at->format('d M Y') }}</p>
+                                        </div>
                                     </div>
                                     <div>
                                         @if($trx->status == 'pending')

@@ -3,24 +3,21 @@ require __DIR__.'/vendor/autoload.php';
 $app = require_once __DIR__.'/bootstrap/app.php';
 $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
-$products = [
-    (object)[
-        'id' => 1,
-        'title' => 'GDevelop Game Pro',
-        'type' => 'game',
-        'image' => null,
-        'description' => 'A great game template.',
-        'price' => 50000
-    ],
-    (object)[
-        'id' => 2,
-        'title' => 'Android App POS',
-        'type' => 'android',
-        'image' => null,
-        'description' => 'A point of sale application.',
-        'price' => 75000
-    ]
-];
+$p1 = new \App\Models\Product();
+$p1->id = 1;
+$p1->title = 'GDevelop Game Pro';
+$p1->type = 'game';
+$p1->description = 'A great game template.';
+$p1->price = 50000;
+
+$p2 = new \App\Models\Product();
+$p2->id = 2;
+$p2->title = 'Android App POS';
+$p2->type = 'android';
+$p2->description = 'A point of sale application.';
+$p2->price = 75000;
+
+$products = [$p1, $p2];
 
 $errors = new \Illuminate\Support\ViewErrorBag;
 view()->share('errors', $errors);
@@ -28,7 +25,7 @@ view()->share('errors', $errors);
 function renderAndSave($viewName, $data, $filename) {
     try {
         $html = view($viewName, $data)->render();
-        file_put_contents('views/' . $filename, $html);
+        file_put_contents($filename, $html);
         echo "Rendered $filename\n";
     } catch (\Exception $e) {
         echo "Error $filename: " . $e->getMessage() . "\n";
@@ -43,3 +40,8 @@ renderAndSave('admin.dashboard', ['revenue' => 150000, 'totalProducts' => 2, 'to
 renderAndSave('cart.index', ['carts' => collect(), 'total' => 0], 'cart.html');
 renderAndSave('checkout.index', ['carts' => collect(), 'total' => 0], 'checkout.html');
 renderAndSave('rentals.index', ['transactions' => collect()], 'rentals.html');
+
+renderAndSave('admin.products.index', ['products' => collect($products)], 'admin-products.html');
+renderAndSave('admin.products.create', [], 'admin-products-create.html');
+renderAndSave('admin.products.edit', ['product' => $p1], 'admin-products-edit.html');
+renderAndSave('admin.transactions.index', ['transactions' => collect()], 'admin-transactions.html');

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="">
+
+        <title>Laravel</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+        <!-- Scripts -->
+        <link rel="preload" as="style" href="assets/app-5GQ4Cenj.css" /><link rel="modulepreload" as="script" href="assets/app-DO2nEFzp.js" /><link rel="stylesheet" href="assets/app-5GQ4Cenj.css" /><script type="module" src="assets/app-DO2nEFzp.js"></script>        <style>
+            body { background-color: #0D0D12; }
+        </style>
+    </head>
+    <body class="font-sans text-gray-200 antialiased bg-[#0D0D12]">
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            
+            <div class="relative z-10">
+                <a href="/" class="text-4xl font-extrabold text-[#00FF66] tracking-wider drop-shadow-[0_0_8px_rgba(0,255,102,0.5)]">
+                    RENTAL<span class="text-[#6600FF]">APP</span>
+                </a>
+            </div>
+
+            <div class="w-full sm:max-w-md mt-8 px-8 py-10 bg-[#1A1B26] border border-[#2A2B3D] shadow-[0_0_30px_rgba(102,0,255,0.15)] overflow-hidden sm:rounded-2xl relative z-10">
+                <!-- Session Status -->
+    
+    <h2 class="text-2xl font-bold text-white mb-6 text-center">Login to your account</h2>
+
+    <form method="POST" action="login.html" class="space-y-6">
+        <input type="hidden" name="_token" value="" autocomplete="off">
+        <!-- Email Address -->
+        <div>
+            <label for="email" class="block font-medium text-sm text-gray-300">Email</label>
+            <input id="email" class="block mt-1 w-full bg-[#0B0F19] border border-[#2A2B3D] text-white focus:border-[#6600FF] focus:ring-[#6600FF] rounded-md shadow-sm" type="email" name="email" value="" required autofocus autocomplete="username" />
+                    </div>
+
+        <!-- Password -->
+        <div>
+            <label for="password" class="block font-medium text-sm text-gray-300">Password</label>
+            <input id="password" class="block mt-1 w-full bg-[#0B0F19] border border-[#2A2B3D] text-white focus:border-[#6600FF] focus:ring-[#6600FF] rounded-md shadow-sm" type="password" name="password" required autocomplete="current-password" />
+                    </div>
+
+        <!-- Remember Me -->
+        <div class="block mt-4">
+            <label for="remember_me" class="inline-flex items-center">
+                <input id="remember_me" type="checkbox" class="rounded bg-[#0B0F19] border-[#2A2B3D] text-[#6600FF] shadow-sm focus:ring-[#6600FF]" name="remember">
+                <span class="ms-2 text-sm text-gray-400">Remember me</span>
+            </label>
+        </div>
+
+        <div class="flex items-center justify-between mt-4 border-t border-[#2A2B3D] pt-6">
+                            <a class="underline text-sm text-gray-400 hover:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#6600FF]" href="http://localhost/forgot-password">
+                    Forgot your password?
+                </a>
+            
+            <button type="submit" class="bg-[#00FF66] text-[#0D0D12] font-bold py-2 px-6 rounded-md hover:bg-[#00CC52] transition shadow-[0_0_15px_rgba(0,255,102,0.3)]">
+                Log in
+            </button>
+        </div>
+        
+        <div class="text-center mt-6 text-sm text-gray-400 bg-[#0B0F19] p-3 rounded border border-[#2A2B3D]">
+            Don't have an account? <a href="register.html" class="text-[#6600FF] font-bold hover:underline">Register</a>
+        </div>
+    </form>
+            </div>
+        </div>
+    </body>
+</html>

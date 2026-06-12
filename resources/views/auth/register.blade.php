@@ -7,14 +7,14 @@
         <!-- Name -->
         <div>
             <label for="name" class="block font-medium text-sm text-gray-300">Name</label>
-            <input id="name" class="block mt-1 w-full bg-[#0B0F19] border border-[#2A2B3D] text-white focus:border-[#6600FF] focus:ring-[#6600FF] rounded-md shadow-sm" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <input id="name" class="block mt-1 w-full bg-[#0B0F19] border border-[#2A2B3D] text-white focus:border-[#6600FF] focus:ring-[#6600FF] rounded-md shadow-sm" type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-400" />
         </div>
 
         <!-- Email Address -->
         <div>
             <label for="email" class="block font-medium text-sm text-gray-300">Email</label>
-            <input id="email" class="block mt-1 w-full bg-[#0B0F19] border border-[#2A2B3D] text-white focus:border-[#6600FF] focus:ring-[#6600FF] rounded-md shadow-sm" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <input id="email" class="block mt-1 w-full bg-[#0B0F19] border border-[#2A2B3D] text-white focus:border-[#6600FF] focus:ring-[#6600FF] rounded-md shadow-sm" type="email" name="email" value="{{ old('email') }}" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-400" />
         </div>
 
